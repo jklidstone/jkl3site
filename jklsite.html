@@ -1,0 +1,141 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="C:\Users\jklid\jkl3site\anime-master\lib\anime.min.js"></script>
+  <script src="https://kit.fontawesome.com/e78101bfe6.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- full name header -->
+  <div>
+    <div id="name_box">
+      <h1 class="ml12">JOHN LIDSTONE</h1>
+    </div>
+
+    <!-- social media, etc. icons -->
+    <i class="fab fa-github-square fa-4x" id="github"></i>
+    <i class="fab fa-linkedin fa-4x"></i>
+    <i class="fab fa-facebook-square fa-4x"></i>
+
+    <!-- current, previous employment -->
+    <div id="employment_box">
+      <h3 class="current">Currently @ <span style="color: gray;">Nowhere!</span> <br> (Just graduated and hanging out
+        for a bit!)</h3>
+
+      <h3 class="previous">Previously @
+        <a href="https://www.xpo.com"><span style="color: red;"><u>XPO Logistics</u></span></a></h3>
+
+    </div>
+
+    <!--
+  <i class="fas fa-chevron-circle-down fa-4x"></i>
+  -->
+
+    <div id="pb_button">
+      <h3 id="pb_text">projects / blog</h3>
+    </div>
+
+  </div>
+
+
+
+
+  <script>
+
+    // >> name title easing ***********************
+    var textWrapper = document.querySelector('.ml12');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.ml12 .letter',
+        translateX: [40, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1200,
+        delay: (el, i) => 500 + 75 * i
+      });
+
+    // ********************************************
+
+
+    //get screen width
+    const width = window.innerWidth;
+
+    /*
+    Below focuses on translating social media logos to center view
+    */
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.fa-github-square',
+        opacity: [0, 1],
+        translateX: -1 * (width * .605),
+        delay: 1500,
+      });
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.fa-linkedin',
+        opacity: [0, 1],
+        translateX: -1 * ((width * .485)),
+        delay: 1900,
+      });
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.fa-facebook-square',
+        opacity: [0, 1],
+        translateX: -1 * (width * .365),
+        delay: 2300,
+      });
+
+    // ....
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.current',
+        translateY: 20,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 2000,
+        delay: 3000
+      });
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '.previous',
+        translateY: 20,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 2000,
+        delay: 3500
+      });
+
+    anime.timeline({ loop: false })
+      .add({
+        targets: '#pb_button #pb_text',
+        translateY: 20,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 2000,
+        delay: 4000
+      });
+
+  </script>
+</body>
+
+</html>
